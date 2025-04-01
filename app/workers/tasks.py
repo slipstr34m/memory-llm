@@ -83,7 +83,8 @@ def process_new_interviews():
             SELECT transcript
             FROM grapevine_aiinterviewinstance
             WHERE user_id = %s
-            ORDER BY created_at ASC;
+            ORDER BY created_at ASC
+            LIMIT 5;
         """
         user_interviews_df = pd.read_sql(query_all_user_interviews, conn, params=(user_id,))
         
